@@ -195,6 +195,9 @@ async function loadMessages() {
   if (!res.ok) return;
   const messages = await res.json();
   const chatBox = document.getElementById('chat-box');
+
+  const atBottom = chatBox.clientHeight - chatBox.scrollTop < 50;
+
   chatBox.innerHTML = ''
   messages.forEach((m) => {
     const div = document.createElement('div');
@@ -212,6 +215,10 @@ async function loadMessages() {
     chatBox.appendChild(div);
 
   });
+
+  if (atBottom) {
+    chatBox.scrollTop = chatBox.scrollHeight;
+  }
 }
 
 async function updateUsername(){
