@@ -414,6 +414,28 @@ function setBackgroundImage(){
   reader.readAsDataURL(selectedBackground);
 }
 
+
+
+const accountOverlay = document.getElementById('account-overlay');
+
+accountOverlay.addEventListener('click', (event) => {
+  if (event.target === accountOverlay) closeAccountPopup();
+});
+
+function openAccountPopup() {
+  accountOverlay.hidden = false;
+  document.addEventListener('keydown', onAccountKeydown);
+}
+
+function closeAccountPopup() {
+  accountOverlay.hidden = true;
+  document.removeEventListener('keydown', onAccountKeydown);
+}
+
+function onAccountKeydown(event) {
+  if (event.key === 'Escape') closeAccountPopup();
+}
+
 // Intervals
 setInterval(getUserCount, 30000);
 getUserCount();
