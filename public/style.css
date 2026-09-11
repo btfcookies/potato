@@ -202,13 +202,13 @@ button{
 }
 
 .forum-btn.unread{
-  border-color: #e67e22;
+  border-color: #55BDE2;
   border-width: 2px;
 }
 
 .unread-badge{
   margin-left: 6px;
-  background: #e67e22;
+  background: #55BDE2;
   color: #fff;
   font-size: 0.75em;
   font-weight: bold;
@@ -228,7 +228,9 @@ button{
 }
 
 .account-btn{
-  margin-left: 130px;
+  position: absolute;
+  top: 8px;
+  right: 44px;
   font-size: 15px;
   line-height: 1;
   color: #333;
@@ -236,6 +238,7 @@ button{
   border: 1px solid #ccc;
   border-radius: 8px;
   cursor: pointer;
+  white-space: nowrap;
 }
 
 .account-btn:hover{
@@ -258,11 +261,15 @@ button{
 
 .account-modal{
   position: relative;
-  width: 400px;
-  height: 300px;
+  width: min(700px, 90vw);
+  max-height: 90vh;
+  overflow-y: auto;
   background: #fff;
   border-radius: 8px;
   box-shadow: 0 8px 30px rgba(0, 0, 0, 0.25);
+  padding: 10px;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
 }
 
 .account-close{
@@ -282,4 +289,40 @@ button{
 
 .account-close:hover{
   background: #f0f0f0;
+}
+
+.username-block{
+  display: block;
+}
+
+.username-block label{
+  font-family: Arial, sans-serif;
+  font-size: 20px;
+}
+
+.username-block input{
+  font-size: 20px;
+}
+
+.password-block{
+  display: block;
+  font-size: 20px;
+  margin-top: 10px;
+}
+
+.password-block input{
+  font-size: 20px;
+}
+
+.school-block{
+  font-size: 20px;
+  margin-top: 10px;
+}
+
+.school-block input{
+  font-size: 20px;
+}
+
+.submit{
+  margin-top: 10px;
 }

@@ -53,18 +53,29 @@
       <button onclick="setBackgroundImage()">Submit</button>
     </div>
   </div>
+
   <div id="account-overlay" class="account-popup" role="dialog" aria-modal="true" aria-label="Account" hidden>
     <div class="account-modal">
       <button type="button" class="account-close" aria-label="Close" onclick="closeAccountPopup()">&times;</button>
+      <h1>Create an account</h1>
+      <p>Having an account allows you to create a private room and select your school flair.</p>
       <div class="username-block">
-        <label for="username">Choose a username (you can always change this later): </label>
+        <label for="username">Choose a username: </label>
         <input type="text" placeholder="Geoffrey Wu" id="username">
       </div>
       <div class="password-block">
         <label for="password">Enter a password: </label>
-        <input type="password" placeholder="Choose something secure" id="password"
+        <input type="password" placeholder="Choose something secure" id="password">
       </div>
-      
+      <div class="school-block">
+        <label for="school-input">Select your school: </label>
+        <select name="school-input" id="school-input">
+          <option value="stmarks">St. Mark's</option>
+          <option value="hday">Hockaday</option>
+          <option value="other">Other</option>
+        </select>
+      </div>
+      <button class="submit">Create an account</button>
     </div>
   </div>
   <script src="script.js"></script>
