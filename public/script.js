@@ -190,13 +190,13 @@ async function sendMessage() {
   refreshActivity();
 }
 
-async function loadMessages() {
+async function loadMessages({ forceScroll = false } = {}) {
   const res = await fetch('/messages?forum=' + currentForum);
   if (!res.ok) return;
   const messages = await res.json();
   const chatBox = document.getElementById('chat-box');
 
-  const atBottom = chatBox.clientHeight - chatBox.scrollTop < 50;
+  const atBottom = forceScroll || chatBox.scrollHeight - chatBox.scrollTop - chatBox.clientHeight < 50;
 
   chatBox.innerHTML = ''
   messages.forEach((m) => {
@@ -366,7 +366,7 @@ function switchForum(id){
   loadForumList();
   const blurb = document.getElementById('forum-blurb');
   if (blurb) blurb.textContent = forumByID(id).blurb;
-  loadMessages();
+  loadMessages({ forceScroll: true });
   refreshActivity();
 }
 

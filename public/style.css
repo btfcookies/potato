@@ -226,3 +226,7 @@ button{
   align-items: center;
   flex-wrap: wrap;
 }
+
+.account-btn{
+  padding-left: 100px;
+}
