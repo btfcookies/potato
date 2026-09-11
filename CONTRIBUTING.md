@@ -17,7 +17,7 @@ Thanks for helping out. TAD Chat is a small project, so the process is light.
    You can make a free database at [upstash.com](https://upstash.com/).
 4. Start the server:
    ```
-   node server.js
+   npm start
    ```
    The app runs at `http://localhost:3000`.
 

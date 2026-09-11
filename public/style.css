@@ -229,4 +229,15 @@ button{
 
 .account-btn{
   margin-left: 130px;
+  font-size: 15px;
+  line-height: 1;
+  color: #333;
+  background: #fff;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.account-btn:hover{
+  background: #f0f0f0;
 }
