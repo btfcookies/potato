@@ -29,7 +29,7 @@ function showLogin(message) {
 
 function showPanel() {
   loginDiv.style.display = 'none';
-  panelDiv.style.display = '';
+  panelDiv.style.display = 'block';
   loadBanned();
 }
 
