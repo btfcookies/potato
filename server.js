@@ -3,6 +3,7 @@ const crypto = require('crypto');
 const { Redis } = require('@upstash/redis');
 const bcrypt = require('bcryptjs');
 const cookieParser = require('cookie-parser');
+const { error } = require('console');
 const app = express();
 app.set('trust proxy', true);
 app.use(express.json({ limit: '20kb' }));
@@ -235,7 +236,24 @@ app.post('/auth/login', async (req, res) =>{
   }
 
   await startSession(res, username.toLowerCase());
-  res.json({ok: true, username: account.username, school: account.school, verified: account.verified})
+  res.json({ok: true, username: account.username, school: account.school, verified: account.verified});
+})
+
+app.post('/auth/logout', async (req, res) => {
+  const token = req.cookies && req.cookies.session;
+  if (token) {
+    delete sessions[token];
+    await redis.set(SESSIONS_KEY, sessions);
+  }
+
+  res.clearCookie('session');
+  res.json({ok: true});
+})
+
+app.get('/auth/me', (req, res) => {
+  const account = accountForRequest(req);
+  if (!account) return res.json({ok: false, error: "Account was not found"});
+  res.json({ok: true, username: account.username, school: account.school, verified: account.verfied});
 })
 
 app.post('/messages', async (req, res) => {
